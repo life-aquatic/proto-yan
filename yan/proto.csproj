@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <Nullable>enable</Nullable>
     <LangVersion>8.0</LangVersion>
+    <UserSecretsId>a5d371f6-bc6c-416c-9498-073f82e2ea6d</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

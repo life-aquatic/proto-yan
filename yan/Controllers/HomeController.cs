@@ -25,8 +25,8 @@ namespace proto.Controllers
 
         public IActionResult JobsList()
         {
-            string conn = _configuration.GetConnectionString("myDb1");
-            ViewData["Message"] = conn;
+            
+            ViewData["Message"] = "f";
 
             return View();
         }

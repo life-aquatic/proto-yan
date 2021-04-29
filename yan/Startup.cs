@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,9 +15,24 @@ namespace proto
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private string _connection;
+
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+            .SetBasePath(env.ContentRootPath)
+            .AddJsonFile("appsettings.json",
+                     optional: false,
+                     reloadOnChange: true)
+            .AddEnvironmentVariables();
+
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
+            Configuration = builder.Build();
+            //Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -24,6 +40,12 @@ namespace proto
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //var builder = new SqlConnectionStringBuilder(
+            //Configuration.GetConnectionString("Main"));
+            //builder.Password = Configuration["MainPass"];
+            //_connection = builder.ConnectionString;
+            _connection = Configuration["Database:ConnectionString"];
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
