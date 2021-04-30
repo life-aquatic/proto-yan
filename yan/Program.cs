@@ -42,6 +42,7 @@ namespace proto
                     logger.LogError(ex, "An error occurred creating the DB.");
                 }
             }
+            Guid s = new Guid ("72C75AA1-2F4E-4484-AAA1-CE13A7AC8891");
         }
 
 
