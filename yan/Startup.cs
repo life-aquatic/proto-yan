@@ -15,7 +15,7 @@ namespace proto
 {
     public class Startup
     {
-        private string _connection;
+        private string? _connection;
 
         public Startup(IHostingEnvironment env)
         {
