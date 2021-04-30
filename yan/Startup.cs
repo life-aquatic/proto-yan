@@ -10,12 +10,14 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using proto.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace proto
 {
     public class Startup
     {
-        private string? _connection;
+        
 
         public Startup(IHostingEnvironment env)
         {
@@ -44,7 +46,10 @@ namespace proto
             //Configuration.GetConnectionString("Main"));
             //builder.Password = Configuration["MainPass"];
             //_connection = builder.ConnectionString;
-            _connection = Configuration["Database:ConnectionString"];
+
+            services.AddDbContext<CDPContext>(options =>
+                options.UseSqlServer(Configuration["Database:ConnectionString"]));
+            //services.AddDatabaseDeveloperPageExceptionFilter(); I don't know why I need this. this adds some error information somewhere
 
             services.Configure<CookiePolicyOptions>(options =>
             {
