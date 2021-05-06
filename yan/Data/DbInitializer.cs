@@ -48,7 +48,7 @@ namespace proto.Data
             //    NotConfirmedOnTime = 0,
             //    FirstSyncProgress = 0,
             //    Bottleneck = @"<Bottleneck><OutputArguments><srcProxyRecv value=""10""/><trgProxySend value=""100""/><trgDaemonRecv value=""100""/><trgDaemonWrite value=""1""/></OutputArguments></Bottleneck>"
-            //});
+            //}); 
 
             context.SaveChanges();
 
