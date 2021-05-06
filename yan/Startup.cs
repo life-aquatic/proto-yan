@@ -82,6 +82,12 @@ namespace proto
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "testbind",
+                    template: "{controller=Home}/{action}/{value?}");
+            });
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
