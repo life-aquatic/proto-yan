@@ -11,11 +11,11 @@ namespace proto.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IConfiguration _configuration;
+        private readonly Data.CDPContext _context;
 
-        public HomeController(IConfiguration configuration)
+        public HomeController(Data.CDPContext context)
         {
-            _configuration = configuration;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -30,6 +30,17 @@ namespace proto.Controllers
 
             return View();
         }
+
+
+        public string TestBind(int value)
+        {
+            return "testbind" + value.ToString();
+            //var result = value * value;
+            //var viewModel = new ResultViewModel(result);
+            //return View(viewModel);
+
+        }
+
 
         public IActionResult CDPStats()
         {
