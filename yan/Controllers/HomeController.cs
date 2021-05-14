@@ -30,11 +30,30 @@ namespace proto.Controllers
 
             return View();
         }
-
-
-        public string TestBind(int value)
+        [HttpPost]
+        public string TestPost(CurrencyModel model)
         {
-            return "testbind" + value.ToString();
+            Dictionary<string, decimal> rates = new Dictionary<string, decimal>()
+            {
+                {"ruble", 1},
+                {"dollar", 75},
+                {"euro", 90.4m}
+            };
+            decimal result = (model.Amount / rates[model.CurrencyIn]) * rates[model.CurrencyOut];
+            return string.Format("converting {0} to {1}. {2} {0} = {3} {1}", model.CurrencyIn, model.CurrencyOut, model.Amount, result);
+            
+        }
+
+        public string TestBink(CurrencyModel model)
+        {
+            Dictionary<string, decimal> rates = new Dictionary<string, decimal>()
+            {
+                {"ruble", 1},
+                {"dollar", 75},
+                {"euro", 90.4m}
+            };
+            decimal result = (model.Amount / rates[model.CurrencyIn]) * rates[model.CurrencyOut];
+            return string.Format("converting {0} to {1}. {2} {0} = {3} {1}", model.CurrencyIn, model.CurrencyOut, model.Amount, result);
             //var result = value * value;
             //var viewModel = new ResultViewModel(result);
             //return View(viewModel);
