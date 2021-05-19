@@ -31,7 +31,7 @@ namespace proto.Controllers
             return View();
         }
         [HttpPost]
-        public string TestPost(CurrencyModel model)
+        public ActionResult<string> TestPost([FromBody] CurrencyModel model)
         {
             Dictionary<string, decimal> rates = new Dictionary<string, decimal>()
             {
@@ -40,7 +40,7 @@ namespace proto.Controllers
                 {"euro", 90.4m}
             };
             decimal result = (model.Amount / rates[model.CurrencyIn]) * rates[model.CurrencyOut];
-            return string.Format("converting {0} to {1}. {2} {0} = {3} {1}", model.CurrencyIn, model.CurrencyOut, model.Amount, result);
+            return Ok(string.Format("converting {0} to {1}. {2} {0} = {3} {1}", model.CurrencyIn, model.CurrencyOut, model.Amount, result));
             
         }
 
