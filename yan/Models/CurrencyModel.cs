@@ -12,6 +12,7 @@ namespace proto.Models
         [Display(Name = "Your name")]
         [StringLength(10)]
         public string CurrencyIn { get; set; }
+        [EmailAddress]
         public string CurrencyOut { get; set; }
         public int Amount { get; set; }
 

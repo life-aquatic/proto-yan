@@ -13,11 +13,14 @@
     425.555.0100
 </address>
 
-<input asp-for="CurrencyIn" />
-<input asp-for="CurrencyOut" />
-<input asp-for="Amount" />
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="TestBink">
+    <input asp-for="CurrencyIn" />
+    <input asp-for="CurrencyOut" />
+    <input asp-for="Amount" />
+    <td><input type="submit" value="Submit" /></td>
+</form>
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    <address>
+        <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
+        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    </address>
