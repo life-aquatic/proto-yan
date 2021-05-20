@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+</head>
+
+<body>
+    <span>If you see this, it's nested layout</span>
+    @RenderBody()
+</body>
+</html>
+<! –– atsignhereRenderSection("Sidebar", required: true) ––>

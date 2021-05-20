@@ -1,0 +1,13 @@
+﻿@model CurrencyModel
+
+@{
+    Dictionary<string, decimal> rates = new Dictionary<string, decimal>()
+{
+                {"ruble", 1},
+                {"dollar", 75},
+                {"euro", 90.4m}
+            };
+    decimal result = (Model.Amount / rates[Model.CurrencyIn]) * rates[Model.CurrencyOut];
+}
+<span>@string.Format("converting {0} to {1}. {2} {0} = {3} {1}", Model.CurrencyIn, Model.CurrencyOut, Model.Amount, result)</span>
+<span>this is testbinkinview view</span>

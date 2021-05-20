@@ -20,6 +20,7 @@ namespace proto.Controllers
 
         public IActionResult Index()
         {
+            ViewData["UnexpectedInController"] = "main page's title";
             return View();
         }
 
@@ -27,7 +28,7 @@ namespace proto.Controllers
         {
             
             ViewData["Message"] = "f";
-
+            ViewData["UnexpectedInController"] = "zzzz";
             return View();
         }
         [HttpPost]
@@ -60,13 +61,19 @@ namespace proto.Controllers
 
         }
 
-        public IActionResult TestBinkInView(int amount)
+        public IActionResult CurrencyConvertForm()
         {
-            CurrencyModel currencyConvert = new CurrencyModel();
-            currencyConvert.CurrencyIn = "dollar";
-            currencyConvert.CurrencyOut = "ruble";
-            currencyConvert.Amount = amount;
-            return View(currencyConvert);
+            return View();
+        }
+
+        public IActionResult UserForm()
+        {
+            return View();
+        }
+
+        public IActionResult CurrencyConvertResult(CurrencyModel model)
+        {
+            return View(model);
         }
 
 

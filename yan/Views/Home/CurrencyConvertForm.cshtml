@@ -1,0 +1,19 @@
+﻿@model CurrencyModel
+
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="CurrencyConvertResult">
+    <div class="form-group">
+        <label asp-for="CurrencyIn"></label>
+        <input class="form-control" asp-for="CurrencyIn" />
+        <span asp-validation-for="CurrencyIn"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CurrencyOut"></label>
+        <input class="form-control" asp-for="CurrencyOut" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount"></label>
+        <input class="form-control" asp-for="Amount" />
+    </div>
+    <td><input class="form-control" type="submit" value="Submit" /></td>
+</form>
+<span>bla</span>
