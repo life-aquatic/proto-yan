@@ -14,10 +14,13 @@
 </address>
 
 <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="TestBink">
-    <input asp-for="CurrencyIn" />
-    <input asp-for="CurrencyOut" />
-    <input asp-for="Amount" />
-    <td><input type="submit" value="Submit" /></td>
+    <div class="form-group">
+        <input asp-for="CurrencyIn" />
+        <input asp-for="CurrencyOut" />
+        <span> asp-validation-for="Currency" </span>
+        <input asp-for="Amount" />
+        <td><input type="submit" value="Submit" /></td>
+        </div>
 </form>
 
     <address>

@@ -3,5 +3,18 @@
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
+@{
+    string[] UsersArray = new string[] {
+        "vasya",
+        "petya",
+        "lupa",
+        "pupa"
+    };
+    foreach (var User in UsersArray)
+    {
+        <span>@User</span>
+        <button>"Vieww"</button>
+    }
+}
 
 <p>Use this area to provide additional information.</p>

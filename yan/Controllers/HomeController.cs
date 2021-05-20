@@ -60,8 +60,17 @@ namespace proto.Controllers
 
         }
 
+        public IActionResult TestBinkInView(int amount)
+        {
+            CurrencyModel currencyConvert = new CurrencyModel();
+            currencyConvert.CurrencyIn = "dollar";
+            currencyConvert.CurrencyOut = "ruble";
+            currencyConvert.Amount = amount;
+            return View(currencyConvert);
+        }
 
-        public IActionResult CDPStats()
+
+        public ViewResult CDPStats()
         {
             ViewData["Message"] = "Your contact page.";
 
