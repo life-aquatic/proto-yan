@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using proto.Data;
 using Microsoft.EntityFrameworkCore;
+using proto.DIscratch;
 
 namespace proto
 {
@@ -42,24 +43,24 @@ namespace proto
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //var builder = new SqlConnectionStringBuilder(
-            //Configuration.GetConnectionString("Main"));
-            //builder.Password = Configuration["MainPass"];
-            //_connection = builder.ConnectionString;
+            
 
             services.AddDbContext<CDPContext>(options =>
                 options.UseSqlServer(Configuration["Database:ConnectionString"]));
             //services.AddDatabaseDeveloperPageExceptionFilter(); I don't know why I need this. this adds some error information somewhere
+            
 
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-
+            services.AddTransient < Repository >();
+            services.AddTransient<DataContext>();
+            services.ConfigureByExtension();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddXmlSerializerFormatters();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,13 +85,11 @@ namespace proto
                 routes.MapRoute(
                     name: "testbind",
                     template: "{controller=Home}/{action}/{value?}");
-            });
-            app.UseMvc(routes =>
-            {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+          
         }
     }
 }

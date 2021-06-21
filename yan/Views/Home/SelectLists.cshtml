@@ -1,0 +1,10 @@
+﻿@model SelectModel
+<h2>Some HeaderRR</h2>
+
+
+<select asp-for="SelectedValue1"
+        asp-items="Model.Items"></select>
+
+<select asp-for="SelectedValue2"
+        asp-items="Model.Items"
+        size="@Model.Items.Count()"></select>

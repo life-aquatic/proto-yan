@@ -1,6 +1,6 @@
 ﻿@model UserModel
 
-<form asp-controller="Home" asp-action="Index">
+<form asp-controller="Home" asp-action="UserSubmit">
     <div class="form-group">
         <label asp-for="Name"></label>
         <input class="form-control" asp-for="Name" />
@@ -9,12 +9,16 @@
     <div class="form-group">
         <label asp-for="Email"></label>
         <input class="form-control" asp-for="Email" />
-        <span asp-validation-for="Email"></span>
     </div>
     <div class="form-group">
-        
-        <input class="form-control" for="bla" asp-for="PhoneNumber" />
+        <label asp-for="PhoneNumber"></label>
+        <input class="form-control" asp-for="PhoneNumber" />
         <span asp-validation-for="PhoneNumber"></span>
     </div>
-    <td><input class="form-control" type="submit" value="Submit" /></td>
+    <div><input class="form-control" type="submit" value="Submit" /></div>
+    <div asp-validation-summary="All"></div>
 </form>
+    
+    
+
+

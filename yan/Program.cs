@@ -10,13 +10,19 @@ using System.Threading.Tasks;
 using proto.Data;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using proto.DIscratch;
 
 namespace proto
 {
     public class Program
     {
+        
         public static void Main(string[] args)
         {
+            
+            
+            
+
             var host = CreateWebHostBuilder(args).Build();
 
             CreateDbIfNotExists(host);
@@ -48,6 +54,12 @@ namespace proto
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            .ConfigureLogging(logging =>
+            {
+                logging.ClearProviders();
+                logging.AddConsole();
+            })
+            .UseStartup<Startup>();
+        
     }
 }

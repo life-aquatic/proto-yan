@@ -34,6 +34,7 @@
     <PackageReference Include="bootstrap" Version="3.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>

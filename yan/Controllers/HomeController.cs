@@ -6,20 +6,29 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using proto.Models;
+using proto.DIscratch;
 
 namespace proto.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IEnumerable<IMyDependency> _myDependencies;
         private readonly Data.CDPContext _context;
 
-        public HomeController(Data.CDPContext context)
+        public HomeController(Data.CDPContext context, IEnumerable<IMyDependency> myDependencies)
         {
             _context = context;
+            _myDependencies = myDependencies;
         }
+
+        
 
         public IActionResult Index()
         {
+            foreach (var i in _myDependencies)
+            {
+                i.SendEmail();
+            }
             ViewData["UnexpectedInController"] = "main page's title";
             return View();
         }
@@ -70,6 +79,19 @@ namespace proto.Controllers
         {
             return View();
         }
+        public IActionResult UserSubmit(UserModel model)
+        {
+            if (model.PhoneNumber.Contains("91"))
+            {
+                ModelState.AddModelError(
+                    string.Empty, "podumoy");
+            }
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            return RedirectToAction("Index", "UserForm");
+        }
 
         public IActionResult CurrencyConvertResult(CurrencyModel model)
         {
@@ -84,9 +106,9 @@ namespace proto.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult SelectLists(SelectModel model)
         {
-            return View();
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

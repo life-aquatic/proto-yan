@@ -9,16 +9,16 @@ namespace proto.Models
     public class UserModel
     {
         [Required]
-        [StringLength(50, ErrorMessage ="max 50")]
+        [StringLength(50, ErrorMessage ="max 5")]
         [Display(Name = "User's name")]
         public string Name { get; set; }
         [Required]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "emeil no good")]
         [Display(Name = "email address")]
         public string Email { get; set; }
         [Required]
-        [Phone(ErrorMessage = "make this phone number valid somehow (but I don't know the rules either)")]
-        [Display(Name = "email address")]
+        [Phone]
+        [Display(Name = "phone")]
         public string PhoneNumber { get; set; }
     }
 }
