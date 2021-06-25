@@ -19,10 +19,6 @@ namespace proto
         
         public static void Main(string[] args)
         {
-            
-            
-            
-
             var host = CreateWebHostBuilder(args).Build();
 
             CreateDbIfNotExists(host);
@@ -54,12 +50,25 @@ namespace proto
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration(AddAppConfiguration)
             .ConfigureLogging(logging =>
             {
                 logging.ClearProviders();
                 logging.AddConsole();
             })
             .UseStartup<Startup>();
-        
+        //why do I have this "AddAppConfiguration" here, if I am also adding configuration in Startup.ConfigureServices??????????
+        public static void AddAppConfiguration(WebHostBuilderContext hostingContext,
+            IConfigurationBuilder config)
+        {
+            //this magic line is very important. environment variables are buried inside that WebHostBuilderContext thingie - 
+            //how else could I have found out it's there?
+            var env = hostingContext.HostingEnvironment.EnvironmentName;
+            config
+                .AddJsonFile("somesettings.json", optional: true)
+                .AddJsonFile("appsettings.json", optional: true)
+                .AddJsonFile($"appsettings.{env}.json", optional: true)
+                .AddEnvironmentVariables();
+        }
     }
 }
