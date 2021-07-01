@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "proto", "yan\proto.csproj", "{823F7F5E-3716-4296-92ED-FC9064861E98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ang-proto", "ang-proto\ang-proto.csproj", "{C43147AC-7CB7-4C75-8D8E-3750AFDB9C2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "recipe", "recipe\recipe.csproj", "{453EBCDD-011F-41F5-BDCA-30D9D1BA0650}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{823F7F5E-3716-4296-92ED-FC9064861E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{823F7F5E-3716-4296-92ED-FC9064861E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{823F7F5E-3716-4296-92ED-FC9064861E98}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C43147AC-7CB7-4C75-8D8E-3750AFDB9C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C43147AC-7CB7-4C75-8D8E-3750AFDB9C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C43147AC-7CB7-4C75-8D8E-3750AFDB9C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C43147AC-7CB7-4C75-8D8E-3750AFDB9C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{453EBCDD-011F-41F5-BDCA-30D9D1BA0650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{453EBCDD-011F-41F5-BDCA-30D9D1BA0650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{453EBCDD-011F-41F5-BDCA-30D9D1BA0650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{453EBCDD-011F-41F5-BDCA-30D9D1BA0650}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,6 +12,8 @@ namespace proto.Data
         public CDPContext(DbContextOptions<CDPContext> options) : base(options)
         {
         }
+
+        public DbSet<CDPQuant> CDPQuants { get; set; }
     }
 
 }

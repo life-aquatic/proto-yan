@@ -1,0 +1,11 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    foreach (Recipe i in (ICollection<Recipe>)ViewData["Recipes"])
+            {
+                <div>@i.Name</div>
+                <div><a asp-area="" asp-controller="Recipe" asp-action="RView" asp-route-zd="@i.RecipeId">View</a></div>
+            }
+}
+<p>index lol</p>
