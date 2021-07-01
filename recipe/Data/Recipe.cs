@@ -7,12 +7,7 @@ namespace recipe.Models
 {
     public class Recipe
     {
-        public Recipe(int recipeId, string name, ICollection<Ingredient> ingredients)
-        {
-            RecipeId = recipeId;
-            Name = name;
-            Ingredients = ingredients;
-        }
+        
 
         public int RecipeId { get; set; }
         public string Name { get; set; }
