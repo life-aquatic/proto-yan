@@ -4,7 +4,7 @@
     {
         public Ingredient(int ingredientId, int recipeId, string name, decimal quantity, string unit)
         {
-            IngredientId = ingredientId;
+            IngredientId = changedingredientId;
             RecipeId = recipeId;
             Name = name;
             Quantity = quantity;
