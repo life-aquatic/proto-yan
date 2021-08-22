@@ -1,0 +1,8 @@
+﻿<p>recipe creation page</p>
+@model recipe.Models.CreateRecipeCommand
+
+    <form method="post" asp-controller="Recipe" asp-action="CreateRecipe">
+        @Html.Partial("_EditRecipePartial")
+        </form>
+
+

@@ -35,6 +35,7 @@ namespace recipe
 
             //when I create a db context class, I have to register it here
             services.AddDbContext<RecDbContext>(options => options.UseSqlServer(Configuration["Database:ConnectionString"]));
+            services.AddScoped<RecipeService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

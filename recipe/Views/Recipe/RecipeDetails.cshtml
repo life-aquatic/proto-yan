@@ -1,0 +1,26 @@
+﻿@using recipe.Data
+@model RecipeDetailsModel
+
+
+
+<p>This concoction is called "@Model.Name"</p>
+<p>Its Id is @Model.RecipeId</p>
+<p>Time you will waste cooking it: @Model.TimeToCook</p>
+<table>
+    <tr>
+        <th>Ingredient Name</th>
+        <th>Amount</th>
+        <th>Unit</th>
+    </tr>
+    @{
+        foreach (var i in Model.Ingredients)
+        {
+            <tr>
+                <td>@i.Name</td>
+                <td>@i.Quantity</td>
+                <td>@i.Unit</td>
+            </tr>
+        }
+    }
+</table>
+<a asp-controller="Recipe" asp-action="UpdateRecipe" asp-route-id="@Model.RecipeId" class="btn btn-success">Edit</a>

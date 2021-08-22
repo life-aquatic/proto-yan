@@ -1,7 +1,26 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    
-}
-<p>index lol</p>
+﻿@model ICollection<RecipeSummaryViewModel>
+    <table>
+        <tr>
+            <th>Recipe Name</th>
+            <th>Time to cook this concoction</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @{
+            foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.Name</td>
+                    <td>@i.TimeToCook</td>
+                    <td>
+                        <a asp-controller="Recipe" asp-action="UpdateRecipe" asp-route-id="@i.RecipeId" class="btn btn-success">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-zd="@i.RecipeId" class="btn btn-success">View details</a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+    <p>index lol</p>
+    <a asp-controller="Recipe" asp-action="CreateRecipe" class="btn btn-success">Create Recipe</a>

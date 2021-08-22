@@ -13,6 +13,8 @@ namespace recipe.Data
         {
         }
 
-        public DbSet<Recipe> Recipes { get; set; } // I will use Recipes property to query the database. this magic line add classes that will be written into DB (afaIu)
+        public DbSet<Recipe> Recipes { get; set; } // I will use Recipes property to query the database. this magic line add classes that will be written into DB (afaIu).
+                                                   // It is an IQueryable, so I can use Select() and Where(). EF core will convert those to SQL statements 
+                                                   // when I execute them using ToList(), ToArray() or Single(). I can also use Select() to map the output to other options
     }
 }
