@@ -1,6 +1,7 @@
 ﻿<p>recipe editing page</p>
 @model recipe.Models.UpdateRecipeCommand
 
-    <form method="post" asp-controller="Recipe" asp-action="UpdateRecipe">
-        @Html.Partial("_EditRecipePartial")
-        </form>
+<form method="post" asp-controller="Recipe" asp-action="UpdateRecipe">
+    @Html.Partial("_EditRecipePartial")
+    <div><input class="form-control" type="submit" value="Submit" /></div>
+</form>

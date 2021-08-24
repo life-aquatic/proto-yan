@@ -3,35 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using recipe.Data;
 
 namespace recipe.Migrations
 {
     [DbContext(typeof(RecDbContext))]
-    partial class RecDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210822202213_AddedCook")]
+    partial class AddedCook
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("recipe.Data.Cook", b =>
-                {
-                    b.Property<Guid>("CookId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Specialization");
-
-                    b.HasKey("CookId");
-
-                    b.ToTable("Cooks");
-                });
 
             modelBuilder.Entity("recipe.Data.Ingredient", b =>
                 {

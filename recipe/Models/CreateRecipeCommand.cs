@@ -9,6 +9,6 @@ namespace recipe.Models
 {
     public class CreateRecipeCommand : ModifyRecipeBase
     {
-
+        public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
     }
 }

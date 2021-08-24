@@ -27,14 +27,12 @@ namespace recipe
             {
                 Name = cmd.Name,
                 IsKosher = cmd.IsKosher,
-                
-                //Why do I need all this hassle with Linq? I already have a collection, can't I just assign it?
-                //Ingredients = cmd.Ingredients?.Select(item => new Ingredient
-                //{
-                //    Name = item.Name,
-                //    Quantity = item.Quantity,
-                //    Unit = item.Unit
-                //}).ToList()
+                Ingredients = cmd.Ingredients?.Select(item => new Ingredient
+                {
+                    Name = item.Name,
+                    Quantity = item.Quantity,
+                    Unit = item.Unit
+                }).ToList()
             };
             _context.Add(recipe);
             _context.SaveChanges();
